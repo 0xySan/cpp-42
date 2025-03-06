@@ -6,12 +6,16 @@
 /*   By: etaquet <etaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 03:13:26 by etaquet           #+#    #+#             */
-/*   Updated: 2025/02/06 04:47:32 by etaquet          ###   ########.fr       */
+/*   Updated: 2025/03/06 16:36:53 by etaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
+
+# include <iostream>
+# include <iomanip>
+# include <string>
+# include <cstdlib>
 #include "Contact.hpp"
 
 class PhoneBook

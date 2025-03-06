@@ -7,7 +7,7 @@ SRCS = $(addprefix ./,$(SRCS_FILE))
 
 OBJ = $(SRCS:.cpp=.o)
 
-NAME = aweeeee
+NAME = phonebook
 
 all: $(NAME)
 
