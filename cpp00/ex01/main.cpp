@@ -6,7 +6,7 @@
 /*   By: etaquet <etaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 02:35:20 by etaquet           #+#    #+#             */
-/*   Updated: 2025/02/06 04:53:07 by etaquet          ###   ########.fr       */
+/*   Updated: 2025/03/06 18:09:03 by etaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void readInput(std::string &input)
 		std::cin >> input;
 }
 
-void PhoneBook::executeall(std::string str)
+void	PhoneBook::executeall(std::string str)
 {
 	if (str.compare("ADD") == 0)
 		ADD();
