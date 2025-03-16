@@ -1,4 +1,5 @@
-SRCS_FILE = tests.cpp
+SRCS_FILE = tests.cpp \
+			Account.cpp
 
 SRCS = $(addprefix ./,$(SRCS_FILE))
 
