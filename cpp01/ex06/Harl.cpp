@@ -6,7 +6,7 @@
 /*   By: etaquet <etaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 18:31:16 by etaquet           #+#    #+#             */
-/*   Updated: 2025/03/21 19:51:28 by etaquet          ###   ########.fr       */
+/*   Updated: 2025/03/21 19:53:00 by etaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void Harl::complain( std::string level )
 
     if (actions.find(level) != actions.end() && levelPriority[level] >= levelPriority[filterLevel])
         (this->*actions[level])();
-    else if (nb_of_calls == 0 && levelPriority[level] < levelPriority[filterLevel])
+    else if (nb_of_calls == 0 && levelPriority[filterLevel] == 5)
         std::cout << MAGENTA_BG << WHITE_TEXT << " Probably complaining about insignificant problems.\n" << RESET;
     else if (actions.find(level) == actions.end() && nb_of_calls == 0)
         std::cout << MAGENTA_BG << WHITE_TEXT << " Unknown complaint.\n" << RESET;
