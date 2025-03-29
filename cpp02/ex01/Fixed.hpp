@@ -6,7 +6,7 @@
 /*   By: etaquet <etaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 00:04:23 by etaquet           #+#    #+#             */
-/*   Updated: 2025/03/22 00:28:35 by etaquet          ###   ########.fr       */
+/*   Updated: 2025/03/26 20:13:01 by etaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Fixed
         Fixed(const float value);
         ~Fixed();
         Fixed &operator=(const Fixed &copy);
-        Fixed operator--(int);
         int getRawBits(void) const;
         void setRawBits(int const raw);
         float toFloat(void) const;
