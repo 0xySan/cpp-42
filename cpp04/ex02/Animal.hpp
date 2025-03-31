@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etaquet <etaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 00:03:49 by etaquet           #+#    #+#             */
-/*   Updated: 2025/03/29 05:38:35 by etaquet          ###   ########.fr       */
+/*   Created: 2025/03/22 16:35:41 by etaquet           #+#    #+#             */
+/*   Updated: 2025/03/29 04:54:07 by etaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-int main( void )
+#include <iostream>
+
+class Animal
 {
+    protected:
+        std::string _type;
+    public:
+        Animal();
+        Animal( const Animal & );
+        virtual ~Animal();
+        Animal	&operator = ( const Animal & );
+        virtual	void makeSound() const = 0;
+        std::string getType() const;
+};
 
-    std::cout << bsp(Point(0, 0), Point(10, 30), Point(20, 0), Point(10, 28)) << std::endl;
-    std::cout << bsp(Point(0, 0), Point(10, 30), Point(20, 0), Point(30, 15)) << std::endl;
-    
-    return 0;
-}
+#endif

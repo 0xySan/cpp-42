@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etaquet <etaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 00:03:49 by etaquet           #+#    #+#             */
-/*   Updated: 2025/03/29 05:38:35 by etaquet          ###   ########.fr       */
+/*   Created: 2025/03/22 17:10:25 by etaquet           #+#    #+#             */
+/*   Updated: 2025/03/22 17:30:23 by etaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-int main( void )
+#include <iostream>
+
+class Brain
 {
+    public:
+        Brain();
+	    Brain( const Brain & );
+	    Brain &operator	= ( const Brain & );
+	    ~Brain();
+        std::string _ideas[100];
+};
 
-    std::cout << bsp(Point(0, 0), Point(10, 30), Point(20, 0), Point(10, 28)) << std::endl;
-    std::cout << bsp(Point(0, 0), Point(10, 30), Point(20, 0), Point(30, 15)) << std::endl;
-    
-    return 0;
-}
+#endif

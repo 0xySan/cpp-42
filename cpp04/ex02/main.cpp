@@ -5,18 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: etaquet <etaquet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 00:03:49 by etaquet           #+#    #+#             */
-/*   Updated: 2025/03/29 05:38:35 by etaquet          ###   ########.fr       */
+/*   Created: 2025/03/22 16:38:43 by etaquet           #+#    #+#             */
+/*   Updated: 2025/03/29 04:55:54 by etaquet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-int main( void )
+
+int main()
 {
-
-    std::cout << bsp(Point(0, 0), Point(10, 30), Point(20, 0), Point(10, 28)) << std::endl;
-    std::cout << bsp(Point(0, 0), Point(10, 30), Point(20, 0), Point(30, 15)) << std::endl;
+    // Animal test3; <- wont work
     
-    return 0;
+    Animal	*test = new Cat();
+	std::cout << test->getType() << std::endl;
+	test->makeSound();
+
+	Animal	*test2 = new Dog();
+	std::cout << test2->getType() << std::endl;
+	test2->makeSound();
+
+	delete test;
+	delete test2;
+	return (0);
 }
