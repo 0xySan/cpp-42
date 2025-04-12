@@ -55,12 +55,12 @@ void Bureaucrat::incrementGrade()
 
 const char* Bureaucrat::GradeTooHighException::what() const noexcept
 {
-	return("Grade too high for the bureaucrat");
+	return("Grade too high for the bureaucrat\n");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const noexcept
 {
-	return("Grade too low for the bureaucrat");
+	return("Grade too low for the bureaucrat\n");
 }
 
 std::ostream &operator << (std::ostream &os, Bureaucrat& objs)

@@ -40,6 +40,6 @@ std::string RobotomyRequestForm::getTarget() const {
 
 std::ostream &operator<<(std::ostream &out, const RobotomyRequestForm &form) {
     out << "RobotomyRequestForm: " << form.getName() << ", Target: " << form.getTarget() << ", Signed: " << form.getSigned()
-        << ", Grade to sign: " << form.getGradeSign() << ", Grade to execute: " << form.getGradeExecute();
+        << ", Grade to sign: " << form.getGradeSign() << ", Grade to execute: " << form.getGradeExecute() << std::endl;
     return out;
 }

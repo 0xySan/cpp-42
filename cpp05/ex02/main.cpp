@@ -4,56 +4,42 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-#define SPACE std::cout << "\n\n\n";
-
-int main() {
-    try {
-        Bureaucrat no("no", 150);
-        Bureaucrat yes("yes", 130);
-
-        AForm *yes_form = new ShrubberyCreationForm("yes to yes");
-
-        no.executeForm(*yes_form);
-        yes.executeForm(*yes_form);
-
-        no.signForm(*yes_form);
-        yes.signForm(*yes_form);
-
-        no.executeForm(*yes_form);
-        yes.executeForm(*yes_form);
-
-        delete yes_form;
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << std::endl;
-    }
-
-	SPACE
-
-    try {
-        Bureaucrat yes("yes", 1);
-
-        AForm *yes_form = new RobotomyRequestForm("yes to yes");
-        yes.signForm(*yes_form);
-
-        yes.executeForm(*yes_form);
-
-        delete yes_form;
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << std::endl;
-    }
-
-	SPACE
-
-    try {
-        Bureaucrat yes("yes", 1);
-
-        AForm *yes_form = new PresidentialPardonForm("yes to yes");
-        yes.signForm(*yes_form);
-
-        yes.executeForm(*yes_form);
-
-        delete yes_form;
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << std::endl;
-    }
+int		main()
+{
+	Bureaucrat		B("monkey", 40);
+	ShrubberyCreationForm	s("Home");
+	try {
+		s.beSigned(B);
+		s.execute(B);
+	}
+	catch ( const std::exception &e )
+	{
+		std::cout << e.what();
+	}
+	///
+	///>
+	PresidentialPardonForm	p("berber");
+	try {
+		p.beSigned(B);
+		p.execute(B);
+	}
+	catch ( const std::exception &e )
+	{
+		std::cout << e.what();
+	}
+	///
+	///>
+	RobotomyRequestForm		r("xvf");
+	try {
+		r.beSigned(B);
+		r.execute(B);
+	}
+	catch ( const std::exception &e )
+	{
+		std::cout << e.what();
+	}
+	//>
+	std::cout << s;
+	std::cout << p;
+	std::cout << r;
 }

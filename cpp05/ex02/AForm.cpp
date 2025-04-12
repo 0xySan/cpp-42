@@ -40,9 +40,9 @@ void AForm::beSigned(const Bureaucrat &bureaucrat)
 	_signed = true;
 }
 
-const char* AForm::GradeTooHighException::what() const noexcept { return("Grade too high for the form"); }
+const char* AForm::GradeTooHighException::what() const noexcept { return("Grade too high for the form\n"); }
 
-const char* AForm::GradeTooLowException::what() const noexcept { return("Grade too low for the form"); }
+const char* AForm::GradeTooLowException::what() const noexcept { return("Grade too low for the form\n"); }
 
 std::ostream &operator<<(std::ostream &op, AForm &form)
 {
