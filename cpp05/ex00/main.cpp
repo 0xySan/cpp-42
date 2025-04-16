@@ -14,10 +14,10 @@ int main()
 	{
 		Bureaucrat Frangine("Frangine", 1);
 		std::cout << Frangine;
-		Frangine.incrementGrade();
+		Frangine.decrementGrade();
 		std::cout << Frangine;
-		Frangine.decrementGrade();
-		Frangine.decrementGrade();
+		Frangine.incrementGrade();
+		Frangine.incrementGrade();
 	} 
 	catch(std::exception &grade)
 	{

@@ -5,9 +5,9 @@ Form::Form() : _name("Default"), _signed(false), _gradeSign(150), _gradeExecute(
 Form::Form(std::string const &name, int gradeSign, int gradeExecute) : _name(name), _signed(false), _gradeSign(gradeSign), _gradeExecute(gradeExecute)
 {
 	if (gradeSign <= 0 || gradeExecute <= 0)
-		throw GradeTooLowException();
-	if (gradeSign > 150 || gradeExecute > 150)
 		throw GradeTooHighException();
+	if (gradeSign > 150 || gradeExecute > 150)
+		throw GradeTooLowException();
 	else
 		std::cout << "Form " << this->_name << " created" << std::endl;
 }
@@ -35,7 +35,7 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (_signed)
 		throw std::runtime_error("the Form is already signed");
-	if (bureaucrat.getGrade() < getGradeSign())
+	if (bureaucrat.getGrade() > getGradeSign())
 		throw GradeTooLowException();
 	_signed = true;
 }

@@ -4,63 +4,63 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) { std::cout << "Bureauc
 
 Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name), _grade(grade)
 {
-    if (grade <= 0)
-        throw GradeTooHighException();
-    if (grade > 150)
-        throw GradeTooLowException();
-    else
-        std::cout << "Bureaucrat " << this->_name << " created" << std::endl;
+	if (grade <= 0)
+		throw GradeTooLowException();
+	if (grade > 150)
+		throw GradeTooHighException();
+	else
+		std::cout << "Bureaucrat " << this->_name << " created" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat() { std::cout << "Bureaucrat destructor called" << std::endl; }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy)
 {
-    *this = copy;
-    std::cout << "Bureaucrat copy constructor called " << std::endl;
+	*this = copy;
+	std::cout << "Bureaucrat copy constructor called " << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 {
-    if (this != &copy)
+	if (this != &copy)
 		_grade = copy.getGrade();
 	return (*this);
 }
 
 int Bureaucrat::getGrade( void ) const
 {
-    return (this->_grade);
+	return (this->_grade);
 }
 
 std::string const Bureaucrat::getName( void ) const
 {
-    return (this->_name);
+	return (this->_name);
 }
 
 void Bureaucrat::decrementGrade()
 {
-	if (getGrade() + 1 > 150)
-		throw(GradeTooLowException());
-	else
-		++_grade;
-}
-
-void Bureaucrat::incrementGrade()
-{
 	if (getGrade() - 1 <= 0)
-		throw(GradeTooHighException());
+		throw(GradeTooLowException());
 	else
 		--_grade;
 }
 
+void Bureaucrat::incrementGrade()
+{
+	if (getGrade() + 1 > 150)
+		throw(GradeTooHighException());
+	else
+		++_grade;
+}
+
 const char* Bureaucrat::GradeTooHighException::what() const noexcept
 {
-	return("Grade too high for the bureaucrat\n");
+	return("Grade too high for the bureaucrat");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const noexcept
 {
-	return("Grade too low for the bureaucrat\n");
+	return("Grade too low for the bureaucrat");
 }
 
 std::ostream &operator << (std::ostream &os, Bureaucrat& objs)
@@ -69,7 +69,7 @@ std::ostream &operator << (std::ostream &os, Bureaucrat& objs)
 	return (os);
 }
 
-void Bureaucrat::signForm(Form &form) const
+void Bureaucrat::signForm(AForm &form) const
 {
 	try
 	{
@@ -79,6 +79,20 @@ void Bureaucrat::signForm(Form &form) const
 	catch (const std::exception &e)
 	{
 		std::cout << _name << " couldn't sign " << form.getName()
+				  << " because " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << _name << " couldn't execute " << form.getName()
 				  << " because " << e.what() << std::endl;
 	}
 }
